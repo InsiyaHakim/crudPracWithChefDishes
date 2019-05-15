@@ -1,0 +1,32 @@
+@model Chef
+<div class="container">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav ">
+            <li class="nav-item ">
+                <a class="nav-link" href="/allChefs">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Add a Chef</h1>
+    <form asp-action="addChef" asp-controller="Home" method="post">
+        <div class="form-group">
+            <label asp-for="f_name"></label>
+            <input type="text" asp-for="f_name" id="" class="form-control">
+            <span asp-validation-for="f_name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="l_name"></label>
+            <input type="text" asp-for="l_name" id="" class="form-control">
+            <span asp-validation-for="l_name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="age"></label>
+            <input type="date" asp-for="age" id="" class="form-control">
+            <span asp-validation-for="age"></span>
+        </div>
+        <center><input type="submit" class="btn btn-primary" value="Add a Chef"></center> 
+    </form>
+</div>

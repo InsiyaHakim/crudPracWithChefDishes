@@ -1,0 +1,40 @@
+@model Dishes
+<div class="container">
+    <nav class="navbar navbar-expand-sm bg-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="/allDishes">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    <h1>Edit Dish!!</h1>
+    <form action="/editDish/UpdateDish/@Model.dish_id" method="post">
+        <div class="form-group">
+            <span asp-for="name"></span>
+            <label asp-for="name"></label>
+            <input type="text" asp-for="name" id="" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="calories"></span>
+            <label asp-for="calories"></label>
+            <input type="text" asp-for="calories" id="" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="description"></span>
+            <label asp-for="description"></label>
+            <textarea class="form-control" rows="5" asp-for="description"></textarea>
+        </div>
+        <div class="form-group">
+            <select asp-for="chef_id" id="" class="form-control">
+            @foreach(var chef in ViewBag.chef)
+            {
+                <option value="@chef.chef_id">@chef.full_name</option>
+            }
+            </select>
+        </div>
+        <center><input type="submit" class="btn btn-primary" value="Edit"></center> 
+    </form>
+</div>

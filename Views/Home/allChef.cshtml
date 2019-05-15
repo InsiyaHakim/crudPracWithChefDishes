@@ -1,0 +1,35 @@
+<div class="container">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/addChef">Add a Chef</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <h1 style="color:#007bff">Chef's | <a href="/allDishes">Dishes</a></h1>
+    <h3>Check out our roster of Chefs!</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th># of Dishes</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+            @foreach(var chef in Model)
+            {
+                <tr>
+                    <td>@chef.f_name</td>
+                    <td>@chef.l_name</td>
+                    <td>@chef.Dishes.Count</td>
+                    <td><a href="/editChef/@chef.chef_id">Edit</a></td>
+                    <td><a href="/delete/@chef.chef_id">Delete</a></td>
+                </tr>
+            }
+    </table>
+
+</div>
